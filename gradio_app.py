@@ -90,4 +90,8 @@ iface = gr.Interface(
 
 
 if __name__ == "__main__":
-    iface.launch(debug=True)
+    # --- THIS IS THE UPDATED PART ---
+    # Get the port from the environment variable (Render sets this)
+    port = int(os.environ.get("PORT", 7860))
+    # Launch the app to be accessible externally (0.0.0.0)
+    iface.launch(server_name="0.0.0.0", server_port=port)
